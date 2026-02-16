@@ -1,14 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Counter from './Components/Counter'
+import ClickCounter from './Components/ClickCounter'
+import HoverCounter from './Components/HoverCounter'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <Counter>
+        {(count, incrementCount) => (
+          <ClickCounter count={count} incrementCount={incrementCount} />
+        )}
+      </Counter>
+      <Counter>
+        {(count, incrementCount) => (
+          <HoverCounter count={count} incrementCount={incrementCount} />
+        )}
+      </Counter>
     </>
   )
 }
